@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://fekhjaov6j2b"]
+
+[ext_resource type="Script" path="res://Game/Levels/Player.gd" id="1_f7gui"]
+[ext_resource type="Script" path="res://Game/Levels/Main.gd" id="1_ikpu4"]
+[ext_resource type="Script" path="res://Game/Levels/GunController.gd" id="3_cio3x"]
+[ext_resource type="PackedScene" uid="uid://dp11pl34ka1u1" path="res://Game/Gun.tscn" id="4_i7ubt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3h4s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ngym3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2w0fa"]
+albedo_color = Color(0.635294, 0.184314, 0.0705882, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6wi5r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tefpp"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_ikpu4")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
+use_collision = true
+collision_layer = 4
+material = SubResource("StandardMaterial3D_y3h4s")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26301, 0)
+collision_mask = 4
+script = ExtResource("1_f7gui")
+
+[node name="Body" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_ngym3")
+surface_material_override/0 = SubResource("StandardMaterial3D_2w0fa")
+
+[node name="Face" type="MeshInstance3D" parent="Player/Body"]
+transform = Transform3D(0.768131, 0, 0, 0, 0.188299, 0, 0, 0, 0.621901, 0, 0.344134, -0.246629)
+mesh = SubResource("BoxMesh_6wi5r")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tefpp")
+
+[node name="Hand" type="Marker3D" parent="Player/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.493175, 0, -0.796705)
+
+[node name="GunController" type="Node" parent="Player"]
+script = ExtResource("3_cio3x")
+starting_weapon = ExtResource("4_i7ubt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 10, 10, 10)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 10, 5)

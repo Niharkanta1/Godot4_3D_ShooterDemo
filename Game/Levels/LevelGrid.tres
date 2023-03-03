@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dnysesql4jy6s"]
+
+[ext_resource type="Texture2D" uid="uid://dsu4vushimk62" path="res://Art/ground-grid_512x512.png" id="1_esuuc"]
+
+[resource]
+albedo_texture = ExtResource("1_esuuc")
+uv1_triplanar = true
+uv1_world_triplanar = true

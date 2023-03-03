@@ -26,3 +26,4 @@ func shoot() -> void:
 		equipped_weapon.shoot()
 	else:
 		print("No gun is equiped")
+		

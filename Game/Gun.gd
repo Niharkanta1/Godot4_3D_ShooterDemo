@@ -27,3 +27,4 @@ func shoot():
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
+

@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://drstaljemeluq"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://Game/Bullet.gd" id="1_ltnbu"]
+[ext_resource type="Script" path="res://Game/Weapon/Bullet.gd" id="1_ltnbu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ds7k8"]
 albedo_color = Color(0.337255, 0.113725, 0.113725, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_haoua"]
 material = SubResource("StandardMaterial3D_ds7k8")
-radius = 0.05
-height = 0.1
+radius = 0.1
+height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v5j25"]
-radius = 0.015
+radius = 0.03
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_ltnbu")

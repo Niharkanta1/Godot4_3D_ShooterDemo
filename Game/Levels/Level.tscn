@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2mnx3t6iro3y"]
+[gd_scene load_steps=7 format=3 uid="uid://csoo5ahwxdrix"]
 
 [ext_resource type="Script" path="res://Game/Main.gd" id="1_eyb5n"]
-[ext_resource type="PackedScene" uid="uid://c6feqtrl032y3" path="res://Game/Player.tscn" id="2_wfyls"]
+[ext_resource type="PackedScene" path="res://Game/Player/Player.tscn" id="2_wfyls"]
 [ext_resource type="Material" uid="uid://dnysesql4jy6s" path="res://Game/Levels/LevelGrid.tres" id="4_aova5"]
 [ext_resource type="Material" uid="uid://ciggdettj3kph" path="res://Game/Levels/ObstacleGrid.tres" id="4_pa1af"]
-[ext_resource type="PackedScene" uid="uid://dxrjjykw8edoo" path="res://Game/Enemy.tscn" id="5_ijt2w"]
 [ext_resource type="PackedScene" uid="uid://bq2em2vgovbtb" path="res://Game/Spawner.tscn" id="6_o6rvu"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rvs72"]
@@ -16,7 +15,7 @@ agent_radius = 1.0
 script = ExtResource("1_eyb5n")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.291871, 0.956458, 0, -0.956458, 0.291871, 0, 15.238, 4.9496)
+transform = Transform3D(1, 0, 0, 0, 0.223965, 0.974597, 0, -0.974597, 0.223965, 0, 15.238, 4.9496)
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -27,9 +26,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21764, 1.26301, -7.27555)
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("5_ijt2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0618, 1.26257, -6.793)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_rvs72")
@@ -70,4 +66,3 @@ size = Vector3(20, 1, 20)
 material = ExtResource("4_aova5")
 
 [node name="Spawner" parent="." instance=ExtResource("6_o6rvu")]
-enemy = ExtResource("5_ijt2w")

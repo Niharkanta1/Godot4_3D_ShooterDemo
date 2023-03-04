@@ -1,10 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq2em2vgovbtb"]
+[gd_scene load_steps=4 format=3 uid="uid://bq2em2vgovbtb"]
 
 [ext_resource type="Script" path="res://Game/Spawner.gd" id="1_ju5fu"]
+[ext_resource type="PackedScene" uid="uid://boexpb3ec15bw" path="res://Game/Enemy/Enemy.tscn" id="2_usmeu"]
+[ext_resource type="Script" path="res://Game/Wave.gd" id="3_olbxu"]
 
 [node name="Spawner" type="Node3D"]
 script = ExtResource("1_ju5fu")
+enemy = ExtResource("2_usmeu")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Waves" type="Node" parent="."]
+
+[node name="Wave1" type="Node" parent="Waves"]
+script = ExtResource("3_olbxu")
+num_enemies = 2
+seconds_between_spwans = 1.0
+
+[node name="Wave3" type="Node" parent="Waves"]
+script = ExtResource("3_olbxu")
+num_enemies = 20
+seconds_between_spwans = 0.2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

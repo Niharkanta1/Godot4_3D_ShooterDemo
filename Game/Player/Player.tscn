@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6feqtrl032y3"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="Script" path="res://Game/Player.gd" id="1_cywxc"]
-[ext_resource type="Script" path="res://Game/GunController.gd" id="2_oas2y"]
-[ext_resource type="PackedScene" uid="uid://dp11pl34ka1u1" path="res://Game/Gun.tscn" id="3_b37ml"]
+[ext_resource type="Script" path="res://Game/Player/Player.gd" id="1_cywxc"]
+[ext_resource type="Script" path="res://Game/Weapon/GunController.gd" id="2_oas2y"]
+[ext_resource type="PackedScene" path="res://Game/Weapon/Gun.tscn" id="3_b37ml"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ngym3"]
 

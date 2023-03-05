@@ -38,8 +38,8 @@ func spawn_enemy() -> void:
 	enemy_remaining -= 1
 
 
-func connect_to_enemy_signal(enemy: Enemy) -> void:
-	var stats = enemy.get_node("Stats") as Stats
+func connect_to_enemy_signal(new_enemy: Enemy) -> void:
+	var stats = new_enemy.get_node("Stats") as Stats
 	stats.die_signal.connect(_on_enemy_die_signal)
 
 var _on_enemy_die_signal = func():

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bok5xc2vwm0ju"]
+
+[ext_resource type="Shader" uid="uid://d3c1oy0smcxjk" path="res://Shader/GradientShader.tres" id="1_dciye"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11ox8"]
+render_priority = 0
+shader = ExtResource("1_dciye")
+shader_parameter/ForegroundColor = Color(0, 0, 1, 1)
+shader_parameter/BackgroundColor = Color(0, 1, 0, 1)
+shader_parameter/MapDepth = 10
+shader_parameter/ObstacleDepth = 0.5
+
+[node name="CSGBox3D" type="CSGBox3D"]
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+material = SubResource("ShaderMaterial_11ox8")

@@ -1,0 +1,160 @@
+[gd_resource type="VisualShader" load_steps=14 format=3 uid="uid://d3c1oy0smcxjk"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_s0xxi"]
+parameter_name = "ObstacleDepth"
+default_value_enabled = true
+default_value = 0.5
+
+[sub_resource type="VisualShaderNodeIntParameter" id="VisualShaderNodeIntParameter_5ftjp"]
+parameter_name = "MapDepth"
+default_value_enabled = true
+default_value = 20
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_a71iy"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_nuwbx"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_2402i"]
+output_port_for_preview = 0
+parameter_name = "ForegroundColor"
+default_value_enabled = true
+default_value = Color(1, 0, 0, 1)
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_yxhqo"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+parameter_name = "BackgroundColor"
+default_value_enabled = true
+default_value = Color(0, 0, 1, 1)
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_2nxkd"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, 0.5]
+op_type = 4
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_fsupb"]
+default_input_values = [0, 0.0, 1, 11.0]
+operator = 3
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_jnyoi"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_047tu"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeTransformVecMult" id="VisualShaderNodeTransformVecMult_rb2fg"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_y2g3j"]
+input_name = "model_matrix"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_b2uw6"]
+operator = 1
+
+[resource]
+code = "shader_type spatial;
+uniform vec4 ForegroundColor : source_color = vec4(1.000000, 0.000000, 0.000000, 1.000000);
+uniform vec4 BackgroundColor : source_color = vec4(0.000000, 0.000000, 1.000000, 1.000000);
+uniform int MapDepth = 20;
+uniform float ObstacleDepth = 0.5;
+
+
+
+void vertex() {
+// Input:5
+	mat4 n_out5p0 = MODEL_MATRIX;
+
+
+// Input:2
+	vec3 n_out2p0 = VERTEX;
+
+
+// TransformVectorMult:4
+	vec3 n_out4p0 = (n_out5p0 * vec4(n_out2p0, 1.0)).xyz;
+
+
+// VectorOp:6
+	vec3 n_out6p0 = n_out4p0 - n_out2p0;
+
+
+// Output:0
+	COLOR.rgb = n_out6p0;
+
+
+}
+
+void fragment() {
+// ColorParameter:5
+	vec4 n_out5p0 = ForegroundColor;
+
+
+// ColorParameter:6
+	vec4 n_out6p0 = BackgroundColor;
+
+
+// Input:3
+	vec4 n_out3p0 = COLOR;
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out3p0.x;
+	float n_out4p1 = n_out3p0.y;
+	float n_out4p2 = n_out3p0.z;
+	float n_out4p3 = n_out3p0.w;
+
+
+// IntParameter:12
+	int n_out12p0 = MapDepth;
+
+
+// FloatOp:8
+	float n_out8p0 = n_out4p2 / float(n_out12p0);
+
+
+// FloatParameter:11
+	float n_out11p0 = ObstacleDepth;
+
+
+// FloatOp:9
+	float n_out9p0 = n_out8p0 + n_out11p0;
+
+
+// Mix:7
+	vec3 n_out7p0 = mix(vec3(n_out5p0.xyz), vec3(n_out6p0.xyz), n_out9p0);
+
+
+// Output:0
+	ALBEDO = n_out7p0;
+
+
+}
+"
+graph_offset = Vector2(-442.778, -23.439)
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_047tu")
+nodes/vertex/2/position = Vector2(-400, 220)
+nodes/vertex/4/node = SubResource("VisualShaderNodeTransformVecMult_rb2fg")
+nodes/vertex/4/position = Vector2(-80, 140)
+nodes/vertex/5/node = SubResource("VisualShaderNodeInput_y2g3j")
+nodes/vertex/5/position = Vector2(-360, 120)
+nodes/vertex/6/node = SubResource("VisualShaderNodeVectorOp_b2uw6")
+nodes/vertex/6/position = Vector2(160, 300)
+nodes/vertex/connections = PackedInt32Array(2, 0, 4, 1, 5, 0, 4, 0, 4, 0, 6, 0, 2, 0, 6, 1, 6, 0, 0, 6)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_a71iy")
+nodes/fragment/3/position = Vector2(-740, 520)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_nuwbx")
+nodes/fragment/4/position = Vector2(-420, 540)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorParameter_2402i")
+nodes/fragment/5/position = Vector2(-400, -20)
+nodes/fragment/6/node = SubResource("VisualShaderNodeColorParameter_yxhqo")
+nodes/fragment/6/position = Vector2(-680, 40)
+nodes/fragment/7/node = SubResource("VisualShaderNodeMix_2nxkd")
+nodes/fragment/7/position = Vector2(140, 400)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_fsupb")
+nodes/fragment/8/position = Vector2(-200, 580)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatOp_jnyoi")
+nodes/fragment/9/position = Vector2(-40, 580)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatParameter_s0xxi")
+nodes/fragment/11/position = Vector2(-300, 740)
+nodes/fragment/12/node = SubResource("VisualShaderNodeIntParameter_5ftjp")
+nodes/fragment/12/position = Vector2(-640, 740)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 5, 0, 7, 0, 6, 0, 7, 1, 7, 0, 0, 0, 4, 2, 8, 0, 8, 0, 9, 0, 9, 0, 7, 2, 12, 0, 8, 1, 11, 0, 9, 1)

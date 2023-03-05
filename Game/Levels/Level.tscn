@@ -43,6 +43,7 @@ size = Vector3(3, 1.5, 1)
 material = ExtResource("3_1xfyy")
 
 [node name="CSGBox3D" parent="NavigationRegion3D/NavigationObstacle2D" instance=ExtResource("4_t3oer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74745, 0)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/NavigationObstacle2D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.5, 0)

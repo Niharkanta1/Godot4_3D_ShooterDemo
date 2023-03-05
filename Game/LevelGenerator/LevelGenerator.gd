@@ -8,20 +8,20 @@ extends Node3D
 var shader_material: ShaderMaterial
 
 @export_category("Map:: Size")
-@export_range(2, 20, 2) var map_width: int = 10: 
+@export_range(1, 19, 2) var map_width: int = 10: 
 	set(value):
 		map_width = value
 		update_map_center()
 		generate_map()
 		
-@export_range(2, 20, 2) var map_depth: int = 10:
+@export_range(1, 19, 2) var map_depth: int = 10:
 	set(value):
 		map_depth = value
 		update_map_center()
 		generate_map()
 
 @export_category("Map:: Obstacle")
-@export_range(0.00, 0.5, 0.05) var obstacle_ratio: float = 0.2:
+@export_range(0.05, 1, 0.05) var obstacle_ratio: float = 0.2:
 	set(value):
 		obstacle_ratio = value
 		generate_map()
@@ -65,6 +65,7 @@ var shader_material: ShaderMaterial
 		
 
 var map_cord_array := []
+var obstacle_map := []
 var num_obstacles := 0
 
 # Cordinates Class
@@ -95,6 +96,16 @@ func fill_map_cordinates_array() -> void:
 		for z in range(map_depth):
 			map_cord_array.append(Cords.new(x, z))
 
+
+func fill_obstacle_cords_array() -> void:
+	obstacle_map = []
+	for x in range(map_width):
+		# 2D array
+		obstacle_map.append([]) 
+		for z in range(map_depth):
+			obstacle_map[x].append(false)
+
+
 func update_map_center() -> void:
 	map_center = Cords.new(map_width/2, map_depth/2)
 
@@ -124,20 +135,67 @@ func add_ground() -> void:
 
 func add_obstacles() -> void:
 	fill_map_cordinates_array()
-#	print(map_cord_array)
+	fill_obstacle_cords_array()
 	seed(rng_seed)
 	map_cord_array.shuffle()
-#	print(map_cord_array)
+
 	var num_obstacle: int = map_cord_array.size() * obstacle_ratio
-	for cord in map_cord_array.slice(0, num_obstacle): # GDScript slice is inclusive the bound index
-		if not map_center.equals(cord):
-			create_obstacle_at(cord.x, cord.z)
+	var current_obstacle_count = 0
+	
+	if num_obstacle > 0:
+		for cord in map_cord_array.slice(0, num_obstacle): # GDScript slice is inclusive the bound index
+			
+			if not map_center.equals(cord):		
+				current_obstacle_count += 1
+				obstacle_map[cord.x][cord.z] = true
+				if map_if_fully_accessible(current_obstacle_count):
+					create_obstacle_at(cord.x, cord.z)
+				else:
+					current_obstacle_count -= 1
+					obstacle_map[cord.x][cord.z] = false
+					
+
+func map_if_fully_accessible(current_obstacle_count: int) -> bool:
+	#Flood Fill
+	var already_checked_array := []
+	for x in range(map_width):
+		# 2D array
+		already_checked_array.append([]) 
+		for z in range(map_depth):
+			already_checked_array[x].append(false)
+			
+	var cords_to_check = [map_center] # Array
+	already_checked_array[map_center.x][map_center.z] = true
+	var accessible_tile_count = 1
+	
+	while cords_to_check:
+		var current_tile = cords_to_check.pop_front()
+		for x in [-1, 0, 1]: # X offset
+			for z in [-1, 0, 1]: # Z offset
+				if x == 0 or z == 0: # non-diagonal neighbor
+					var neighbor = Cords.new(current_tile.x + x, current_tile.z + z)
+					if on_the_map(neighbor):
+						if not already_checked_array[neighbor.x][neighbor.z]:
+							if not obstacle_map[neighbor.x][neighbor.z]:
+								already_checked_array[neighbor.x][neighbor.z] = true
+								cords_to_check.append(neighbor)
+								accessible_tile_count += 1
+	
+	var target_accessible_tile_count = map_width * map_depth - current_obstacle_count
+	if target_accessible_tile_count == accessible_tile_count:
+		return true
+	else:
+		return false
+
+
+func on_the_map(cords: Cords) -> bool:
+	return cords.x >= 0 and cords.x < map_width and cords.z >= 0 and cords.z < map_depth
 
 
 func create_obstacle_at(x: int, z: int) -> void:
 	var obstactle_pos := Vector3(x, 0, z)
-	obstactle_pos.x += -map_width/2 + 0.5
-	obstactle_pos.z += -map_depth/2 + 0.5
+	obstactle_pos.x += -map_width/2
+	obstactle_pos.z += -map_depth/2
 	var height = get_random_obstacle_height()
 	var offset = obstacle_offset - even_obstacle_offset if height % 2 == 0 else obstacle_offset
 	obstactle_pos.y += offset + height/2

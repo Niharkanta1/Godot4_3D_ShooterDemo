@@ -8,12 +8,12 @@
 script = ExtResource("1_81gy3")
 ground_scene = ExtResource("2_c45r7")
 obstacle_scene = ExtResource("3_5lqj5")
-map_width = 8
-map_depth = 6
-obstacle_ratio = 0.25
+map_width = 19
+map_depth = 19
+obstacle_ratio = 0.85
 obstacle_max_height = 3
 background_color = Color(0, 1, 0, 1)
 foreground_color = Color(0, 0, 1, 1)
-obstacle_offset = 0.75
+obstacle_offset = 1.0
 even_obstacle_offset = 0.5
-rng_seed = 34212
+rng_seed = 12430

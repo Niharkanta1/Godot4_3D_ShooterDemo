@@ -54,5 +54,6 @@ size = Vector3(3, 2, 1)
 material = ExtResource("3_1xfyy")
 
 [node name="Ground" parent="NavigationRegion3D" instance=ExtResource("4_pbtqj")]
+size = Vector3(19, 1, 19)
 
 [node name="Spawner" parent="." instance=ExtResource("6_o6rvu")]

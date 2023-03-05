@@ -6,3 +6,4 @@
 albedo_texture = ExtResource("1_esuuc")
 uv1_triplanar = true
 uv1_world_triplanar = true
+texture_filter = 0

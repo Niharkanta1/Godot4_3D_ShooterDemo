@@ -3,10 +3,10 @@ extends Node
 class_name Stats
 
 @export var max_hp : float = 5.0
+
 signal die_signal
 
-var current_hp := max_hp
-
+@onready var current_hp := max_hp
 
 func take_hit(damage) -> void:
 	current_hp -= damage

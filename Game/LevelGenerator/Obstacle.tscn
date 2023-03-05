@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciu21us86yp5n"]
+
+[ext_resource type="Material" uid="uid://by6ramymxteiq" path="res://Game/Levels/ObstacleGrid_Alt.tres" id="1_mospg"]
+
+[node name="CSGBox3D" type="CSGBox3D"]
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+material = ExtResource("1_mospg")

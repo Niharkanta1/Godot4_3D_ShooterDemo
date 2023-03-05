@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://bd6xyasty2ptw"]
 
 [ext_resource type="Script" path="res://Game/Player/Player.gd" id="1_cywxc"]
 [ext_resource type="Script" path="res://Game/Weapon/GunController.gd" id="2_oas2y"]
-[ext_resource type="PackedScene" path="res://Game/Weapon/Gun.tscn" id="3_b37ml"]
+[ext_resource type="PackedScene" uid="uid://cu4bo7giifmsc" path="res://Game/Weapon/Gun.tscn" id="3_b37ml"]
+[ext_resource type="PackedScene" uid="uid://c8gn1shw17ye7" path="res://Game/Stats.tscn" id="4_yxj0f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ngym3"]
 
@@ -40,3 +41,8 @@ starting_weapon = ExtResource("3_b37ml")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_773og")
+
+[node name="Stats" parent="." instance=ExtResource("4_yxj0f")]
+max_hp = 10.0
+
+[connection signal="die_signal" from="Stats" to="." method="_on_stats_die_signal"]

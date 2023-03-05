@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5xiij2wmj03a"]
+
+[ext_resource type="PackedScene" uid="uid://cu4bo7giifmsc" path="res://Game/Weapon/Gun.tscn" id="1_u5hxv"]
+
+[node name="Gun" instance=ExtResource("1_u5hxv")]
+
+[node name="Magazine" parent="Mesh" index="2"]
+visible = false

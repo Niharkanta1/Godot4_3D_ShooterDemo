@@ -35,3 +35,8 @@ func set_look_direction(dir: Vector3) -> void:
 	body.look_at(dir, Vector3.UP)
 	if(dir.distance_to(position) > 2.0):
 		hand.look_at(dir, Vector3.UP)
+
+
+func _on_stats_die_signal() -> void:
+	queue_free()
+	print("Game Over")

@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://Game/Enemy/Enemy.gd" id="1_ucc0y"]
 [ext_resource type="Material" uid="uid://diyem8fdqlhpn" path="res://Game/Enemy/Enemy_Rest_Material.tres" id="2_fxj7p"]
-[ext_resource type="PackedScene" uid="uid://bhqxtidax0l7p" path="res://Game/Stats.tscn" id="3_ji1as"]
+[ext_resource type="PackedScene" uid="uid://c8gn1shw17ye7" path="res://Game/Stats.tscn" id="3_ji1as"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4mq17"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c4wy8"]
+radius = 0.45
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_861oe"]
 height = 1.0
@@ -47,4 +48,3 @@ shape = SubResource("CylinderShape3D_861oe")
 [connection signal="timeout" from="Timers/PathUpdateTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="die_signal" from="Stats" to="." method="_on_stats_die_signal"]
-[connection signal="body_entered" from="AttackRadius" to="." method="_on_AttackRadius_body_entered"]

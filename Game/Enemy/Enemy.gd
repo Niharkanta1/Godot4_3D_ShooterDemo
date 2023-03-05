@@ -33,6 +33,8 @@ func _ready() -> void:
 	
 
 func _physics_process(_delta: float) -> void:
+	if not is_instance_valid(player): 
+		return
 	match current_state:
 		State.ATTACK:
 			move_and_attack()
@@ -48,17 +50,21 @@ func _physics_process(_delta: float) -> void:
 				timer.stop()
 				return
 			
-			var direction : Vector3 = navigation_agent.get_next_path_position() - global_transform.origin
-			direction = direction.normalized() * move_speed
+			var seeking_vector : Vector3 = navigation_agent.get_next_path_position() - global_transform.origin
+			seeking_vector = seeking_vector.normalized() * move_speed
 
-			set_velocity(direction)
+			set_velocity(seeking_vector)
 			move_and_slide()
+			
+			if $AttackRadius.overlaps_body(player):
+				attack()
 		
 		State.RETURN:
 			move_and_attack()
 		
 		State.REST:
-			pass
+			set_velocity(Vector3.ZERO)
+			move_and_slide()
 	
 func move_and_attack() -> void:
 	var attack_vector: Vector3 = attack_target - global_transform.origin
@@ -69,6 +75,10 @@ func move_and_attack() -> void:
 	if distance < 1:
 		match current_state:
 			State.ATTACK:
+				# Do Damage
+				var player_stats: Stats = player.get_node("Stats") as Stats
+				player_stats.take_hit(1)
+				
 				current_state = State.RETURN
 				attack_target = return_target
 			State.RETURN:
@@ -84,21 +94,21 @@ func set_collisions(flag: bool) -> void:
 
 # Signals
 func _on_timer_timeout() -> void:
-	if look_for_player:
+	if is_instance_valid(player) and look_for_player:
 		navigation_agent.set_target_position(player.global_transform.origin)
-
+	else:
+		look_for_player = false
 
 func _on_stats_die_signal() -> void:
 	queue_free()
 
 
-func _on_AttackRadius_body_entered(body: Node3D) -> void:
-	if body == player:
-		current_state = State.ATTACK
-		attack_target = player.global_transform.origin
-		return_target = global_transform.origin
-		set_collisions(false)
-		$Body.set_surface_override_material(0, attack_material)
+func attack() -> void:
+	current_state = State.ATTACK
+	attack_target = player.global_transform.origin
+	return_target = global_transform.origin
+	set_collisions(false)
+	$Body.set_surface_override_material(0, attack_material)
 
 func _on_attack_timer_timeout() -> void:
 	current_state = State.SEEK

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://cu4bo7giifmsc"]
 
 [ext_resource type="Script" path="res://Game/Weapon/Gun.gd" id="1_2yr4t"]
 [ext_resource type="PackedScene" path="res://Game/Weapon/Bullet.tscn" id="2_g6l5j"]
@@ -13,19 +13,24 @@ transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 0, 0, 
 script = ExtResource("1_2yr4t")
 bullet = ExtResource("2_g6l5j")
 
-[node name="Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.176377, 0, 0, 0, 0.0300181, 0, 0, 0, 0.0314894, 0, 0, 0)
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(0.176377, 0, -1.11022e-16, 0, 0.0300181, 0, 0, 0, 0.0314894, 0, 0, 0)
 mesh = SubResource("BoxMesh_g01em")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_maj7n")
 
-[node name="Grip" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0509218, 0.0230274, 0, -0.0741166, -0.015821, 0, 0, 0, 0.0314894, -0.0904685, -0.0316272, 0)
+[node name="Grip" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(-0.0509218, 0.0230274, -1.11022e-16, -0.0741166, -0.015821, 0, -2.22045e-16, 0, 0.0314894, -0.0904685, -0.0316272, 0)
 mesh = SubResource("BoxMesh_g01em")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_maj7n")
 
-[node name="Magazine" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0129142, 0.0271697, -0.000769779, -0.0594293, 0.00588719, -0.000817842, -0.00122858, 0.000817602, 0.0314694, 0.00441313, -0.0316272, 0)
+[node name="Magazine" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(0.0129142, 0.0271697, -0.000769779, -0.0594293, 0.00588719, -0.000817842, -0.00122858, 0.000817602, 0.0314694, 0.00441313, -0.0316272, -1.38778e-17)
 mesh = SubResource("BoxMesh_g01em")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_maj7n")
 
 [node name="Muzzle" type="Marker3D" parent="."]

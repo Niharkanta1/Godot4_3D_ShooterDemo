@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4mq17"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c4wy8"]
-radius = 0.45
+radius = 0.4
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_861oe"]
 height = 1.0

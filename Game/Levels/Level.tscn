@@ -1,16 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://csoo5ahwxdrix"]
+[gd_scene load_steps=6 format=3 uid="uid://csoo5ahwxdrix"]
 
 [ext_resource type="Script" path="res://Game/Main.gd" id="1_eyb5n"]
 [ext_resource type="PackedScene" uid="uid://bd6xyasty2ptw" path="res://Game/Player/Player.tscn" id="2_wfyls"]
-[ext_resource type="Material" uid="uid://by6ramymxteiq" path="res://Game/Levels/ObstacleGrid_Alt.tres" id="3_1xfyy"]
-[ext_resource type="PackedScene" uid="uid://bymntkh8nifu5" path="res://Game/LevelGenerator/Ground.tscn" id="4_pbtqj"]
-[ext_resource type="PackedScene" uid="uid://ciu21us86yp5n" path="res://Game/LevelGenerator/Obstacle.tscn" id="4_t3oer"]
+[ext_resource type="PackedScene" uid="uid://xjooq7sfkdb5" path="res://Game/Levels/Generated/Level4.tscn" id="4_b0m3l"]
+[ext_resource type="PackedScene" uid="uid://boexpb3ec15bw" path="res://Game/Enemy/Enemy.tscn" id="4_s4emf"]
 [ext_resource type="PackedScene" uid="uid://bq2em2vgovbtb" path="res://Game/Spawner.tscn" id="6_o6rvu"]
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_rvs72"]
-vertices = PackedVector3Array(-5.75, 0.75, 9, -5.75, 0.75, 7.5, -6.75, 0.75, 7.5, -5, 0.75, 0.5, -4.25, 0.75, 1.5, -2.5, 0.75, 0.75, -2.5, 0.75, -0.75, -9, 0.75, 9, -5.75, 0.75, 9, -6.75, 0.75, 7.5, -7.5, 0.75, 6.75, -9, 0.75, 0, -7.5, 0.75, 1.25, -6.75, 0.75, 0.5, -9, 0.75, 0, -9, 0.75, 9, -7.5, 0.75, 6.75, -7.5, 0.75, 1.25, -5, 0.75, 0.5, -2.5, 0.75, -0.75, -1.5, 0.75, -1.5, -6.75, 0.75, 0.5, -5, 0.75, 0.5, -1.5, 0.75, -1.5, -1.5, 0.75, -9, -9, 0.75, -9, -9, 0.75, 0, 2.75, 0.75, -0.75, 2.75, 0.75, 0, 4.5, 0.75, 0, 2.75, 0.75, -0.75, 4.5, 0.75, 0, 4.5, 0.75, -1.75, 2, 0.75, -1.5, 7.75, 0.75, -1.75, 7.75, 0.75, 0, 9, 0.75, 0, 9, 0.75, -9, 7, 0.75, -2.5, 7.75, 0.75, -1.75, 9, 0.75, -9, 2, 0.75, -1.5, 4.5, 0.75, -1.75, 5.25, 0.75, -2.5, 9, 0.75, -9, -1.5, 0.75, -9, -1.5, 0.75, -1.5, 5.25, 0.75, -2.5, 7, 0.75, -2.5, 9, 0.75, -9, -5, 0.75, 7.5, -5.75, 0.75, 7.5, -5.75, 0.75, 9, 4.5, 0.75, 0, 2.75, 0.75, 0, 2.75, 0.75, 0.75, 9, 0.75, 0, 7.75, 0.75, 0, 7.75, 0.75, 1.75, 9, 0.75, 9, 4.5, 0.75, 2, 4.5, 0.75, 0, 2.75, 0.75, 0.75, 1.75, 0.75, 1.75, -1.75, 0.75, 1.75, -2.5, 0.75, 0.75, -4.25, 0.75, 1.5, -4.25, 0.75, 6.75, -4.25, 0.75, 6.75, -5, 0.75, 7.5, -5.75, 0.75, 9, 1.5, 0.75, 9, 9, 0.75, 9, 7.75, 0.75, 1.75, 6.75, 0.75, 2.75, 5.25, 0.75, 2.75, 4.5, 0.75, 2, 1.75, 0.75, 1.75, -1.75, 0.75, 1.75, -4.25, 0.75, 6.75, 1.5, 0.75, 9, 9, 0.75, 9, 6.75, 0.75, 2.75, 5.25, 0.75, 2.75, 1.5, 0.75, 9)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 7), PackedInt32Array(13, 12, 11), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15), PackedInt32Array(20, 19, 18), PackedInt32Array(21, 26, 22), PackedInt32Array(22, 26, 23), PackedInt32Array(23, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(29, 28, 27), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(38, 40, 39), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 46), PackedInt32Array(43, 46, 45), PackedInt32Array(43, 45, 44), PackedInt32Array(49, 48, 47), PackedInt32Array(52, 51, 50), PackedInt32Array(55, 54, 53), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 63), PackedInt32Array(65, 64, 66), PackedInt32Array(66, 64, 67), PackedInt32Array(69, 68, 70), PackedInt32Array(70, 68, 71), PackedInt32Array(74, 73, 72), PackedInt32Array(76, 75, 77), PackedInt32Array(77, 75, 78), PackedInt32Array(78, 75, 80), PackedInt32Array(78, 80, 79), PackedInt32Array(82, 81, 83), PackedInt32Array(83, 81, 84)]
-agent_radius = 1.0
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_eyb5n")
@@ -23,37 +17,14 @@ current = true
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 10, 10, 10)
 shadow_enabled = true
 
+[node name="NavigationRegion" parent="." instance=ExtResource("4_b0m3l")]
+
 [node name="Player" parent="." instance=ExtResource("2_wfyls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21764, 1.26301, -7.27555)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22139, 1.26301, -6.70274)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_rvs72")
-navigation_layers = 4
-
-[node name="NavigationObstacle2D" type="NavigationObstacle3D" parent="NavigationRegion3D"]
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/NavigationObstacle2D"]
-transform = Transform3D(-7.14179e-08, 0, 1, 0, 1, 0, -1.63385, 0, -4.37114e-08, -6, 0.5, 4)
-use_collision = true
-collision_layer = 4
-collision_mask = 3
-size = Vector3(3, 1.5, 1)
-material = ExtResource("3_1xfyy")
-
-[node name="CSGBox3D" parent="NavigationRegion3D/NavigationObstacle2D" instance=ExtResource("4_t3oer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74745, 0)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/NavigationObstacle2D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.5, 0)
-use_collision = true
-collision_layer = 4
-collision_mask = 3
-size = Vector3(3, 2, 1)
-material = ExtResource("3_1xfyy")
-
-[node name="Ground" parent="NavigationRegion3D" instance=ExtResource("4_pbtqj")]
-size = Vector3(19, 1, 19)
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_s4emf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00992, 1.49349, -4.77593)
 
 [node name="Spawner" parent="." instance=ExtResource("6_o6rvu")]

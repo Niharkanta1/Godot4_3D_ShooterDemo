@@ -16,6 +16,7 @@ albedo_color = Color(0.0588235, 0.737255, 0.8, 1)
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_773og"]
+radius = 0.4
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26301, 0)

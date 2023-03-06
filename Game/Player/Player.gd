@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
 	move_and_slide()
+	print(velocity)
 	
 	# Shooting
 	if Input.is_action_pressed("fire"):

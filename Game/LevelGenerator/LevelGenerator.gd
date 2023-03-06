@@ -12,61 +12,62 @@ var shader_material: ShaderMaterial
 	set(value):
 		map_width = value
 		update_map_center()
-		generate_map()
 		
 @export_range(1, 19, 2) var map_depth: int = 10:
 	set(value):
 		map_depth = value
 		update_map_center()
-		generate_map()
 
 @export_category("Map:: Obstacle")
 @export_range(0.05, 1, 0.05) var obstacle_ratio: float = 0.2:
 	set(value):
 		obstacle_ratio = value
-		generate_map()
 
-@export_range(1, 5, 1) var obstacle_max_height: int = 5:
+@export_range(1, 5) var obstacle_max_height: float = 3:
 	set(value):
 		obstacle_max_height = max(value, obstacle_min_height)
-		generate_map()
-		
-@export_range(1, 5, 1) var obstacle_min_height: int = 1:
+
+@export_range(1, 5) var obstacle_min_height: float = 1:
 	set(value):
 		obstacle_min_height = min(value, obstacle_max_height)
-		generate_map()
+
+@export var obstacle_offset: float = 0.5:
+	set(value):
+		obstacle_offset = value
 		
 @export_category("Map:: Color Settings")
 @export var background_color: Color :
 	set(value):
 		background_color = value
-		generate_map()
 		
 @export var foreground_color: Color :
 	set(value):
 		foreground_color = value
-		generate_map()
 
-@export var obstacle_offset: float = 0.5:
-	set(value):
-		obstacle_offset = value
-		generate_map()
-		
-@export var even_obstacle_offset: float = 0.25:
-	set(value):
-		even_obstacle_offset = value
-		generate_map()
-		
 @export_category("Map:: Seed")
 @export var rng_seed: int = 12345:
 	set(value):
 		rng_seed = value
-		generate_map()
-		
+
+@export var generate_level = false:
+	set(value):
+		if value:
+			generate_map()
+			generate_level = false
+			
+@export var save_level = false:
+	set(value):
+		if value:
+			save_current_level()
+			save_level = false
+
+@export var level_name := "New Level"
 
 var map_cord_array := []
 var obstacle_map := []
 var num_obstacles := 0
+var navigation_region: NavigationRegion3D
+@onready var navigation_mesh := load("res://Game/LevelGenerator/NavigationMeshData.tres") as NavigationMesh
 
 # Cordinates Class
 class Cords:
@@ -113,9 +114,11 @@ func generate_map() -> void:
 	clear_map()
 	print("Generating Map...")	
 	
+	add_level()	
 	add_ground()
 	update_obstacle_material()
 	add_obstacles()
+	navigation_region.bake_navigation_mesh(true)
 	print("Map generated with Size:(",map_width,"x",map_depth ,") and number of obstacles:", num_obstacles)
 
 
@@ -126,11 +129,23 @@ func clear_map() -> void:
 		node.queue_free()
 
 
+func add_level() -> void:
+	# Add Navigation Node
+	navigation_region = NavigationRegion3D.new()
+	navigation_region.name = "NavigationRegion"
+	navigation_mesh.agent_radius = 0.25
+	navigation_mesh.agent_max_slope = 20
+	navigation_region.navigation_mesh = navigation_mesh
+	add_child(navigation_region)
+	navigation_region.owner = self
+	
+
 func add_ground() -> void:
 	var ground: CSGBox3D = ground_scene.instantiate() as CSGBox3D
 	ground.size.x = map_width 
 	ground.size.z = map_depth
-	add_child(ground)
+	navigation_region.add_child(ground)
+	ground.owner = self
 
 
 func add_obstacles() -> void:
@@ -197,18 +212,18 @@ func create_obstacle_at(x: int, z: int) -> void:
 	obstactle_pos.x += -map_width/2
 	obstactle_pos.z += -map_depth/2
 	var height = get_random_obstacle_height()
-	var offset = obstacle_offset - even_obstacle_offset if height % 2 == 0 else obstacle_offset
-	obstactle_pos.y += offset + height/2
+	obstactle_pos.y += height/2 + obstacle_offset
 	var new_obstacle: CSGBox3D = obstacle_scene.instantiate() as CSGBox3D
 	new_obstacle.transform.origin = obstactle_pos
-	new_obstacle.size.y = height
+	new_obstacle.size.y = height 
 	# Update Material 
-	set_random_material_with_texture(new_obstacle, z)
-	add_child(new_obstacle)
+	#set_random_material_with_texture(new_obstacle, z)
+	navigation_region.add_child(new_obstacle)
+	new_obstacle.owner = self
 	num_obstacles += 1
 
-func get_random_obstacle_height() -> int:
-	return randi_range(obstacle_min_height, obstacle_max_height)
+func get_random_obstacle_height() -> float:
+	return randf_range(obstacle_min_height, obstacle_max_height)
 	
 
 func update_obstacle_material() -> void:
@@ -232,3 +247,16 @@ func set_random_material_with_texture(new_obstacle: CSGBox3D, z: int) -> void:
 
 func get_color_at_depth(z: int) -> Color:
 	return background_color.lerp(foreground_color, float(z)/map_depth)
+	
+
+func save_current_level() -> void:
+	var packed_scene = PackedScene.new()
+	for child in navigation_region.get_children():
+		child.owner = navigation_region
+
+	packed_scene.pack(navigation_region)
+	var path = "res://Game/Levels/Generated/%s.tscn" % level_name
+	print("Saving Level at Path: ", path)
+	var error = ResourceSaver.save(packed_scene, path, ResourceSaver.FLAG_REPLACE_SUBRESOURCE_PATHS)
+	if error != OK:
+		print("Error...")

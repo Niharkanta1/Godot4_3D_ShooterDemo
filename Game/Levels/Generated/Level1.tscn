@@ -1,0 +1,358 @@
+[gd_scene load_steps=3 format=3 uid="uid://0sfqvyjpgy36"]
+
+[ext_resource type="PackedScene" uid="uid://bymntkh8nifu5" path="res://Game/LevelGenerator/Ground.tscn" id="1_phbra"]
+[ext_resource type="PackedScene" uid="uid://bok5xc2vwm0ju" path="res://Game/LevelGenerator/Obstacle_New.tscn" id="2_ioxbt"]
+
+[node name="Level" type="Node3D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_phbra")]
+size = Vector3(17, 1, 17)
+
+[node name="CSGBox3D" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 7)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25034" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -5)
+
+[node name="@CSGBox3D@25035" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 1)
+
+[node name="@CSGBox3D@25036" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -8)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25037" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 1)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25038" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 2)
+
+[node name="@CSGBox3D@25039" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 5)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25040" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 7)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25041" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 4)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25042" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.5, -4)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25043" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 2)
+
+[node name="@CSGBox3D@25044" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -5)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25045" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, -3)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25046" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 2)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25047" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -4)
+
+[node name="@CSGBox3D@25048" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 6)
+
+[node name="@CSGBox3D@25049" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+
+[node name="@CSGBox3D@25050" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+
+[node name="@CSGBox3D@25051" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, -5)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25052" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 6)
+
+[node name="@CSGBox3D@25053" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -4)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25054" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -3)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25055" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 8)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25056" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 6)
+
+[node name="@CSGBox3D@25057" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -5)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25058" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -8)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25059" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, -8)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25060" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -1)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25061" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 5)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25062" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 2)
+
+[node name="@CSGBox3D@25063" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25064" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 1)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25065" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, -5)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25066" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -7)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25067" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 3)
+
+[node name="@CSGBox3D@25068" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 5)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25069" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -7)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25070" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -4)
+
+[node name="@CSGBox3D@25071" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -1)
+
+[node name="@CSGBox3D@25072" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+
+[node name="@CSGBox3D@25073" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 7)
+
+[node name="@CSGBox3D@25074" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -7)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25075" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 7)
+
+[node name="@CSGBox3D@25076" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, -6)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25077" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.5, -6)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25078" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, -2)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25079" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -5)
+
+[node name="@CSGBox3D@25080" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 4)
+
+[node name="@CSGBox3D@25081" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -6)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25082" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 8)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25083" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -2)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25084" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 3)
+
+[node name="@CSGBox3D@25085" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -8)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25086" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -6)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25087" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, 3)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25088" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 4)
+
+[node name="@CSGBox3D@25089" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 6)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25090" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, 2)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25091" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25092" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, 0)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25093" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -1)
+
+[node name="@CSGBox3D@25094" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -5)
+
+[node name="@CSGBox3D@25095" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 1)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25096" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.5, 1)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25097" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 2)
+
+[node name="@CSGBox3D@25098" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -7)
+
+[node name="@CSGBox3D@25099" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, 6)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25100" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.5, -7)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25101" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 3)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25102" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -6)
+
+[node name="@CSGBox3D@25103" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -4)
+
+[node name="@CSGBox3D@25104" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -8)
+
+[node name="@CSGBox3D@25105" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 3)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25106" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, -8)
+
+[node name="@CSGBox3D@25107" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 8)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25108" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -2)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25109" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, -2)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25110" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.5, 4)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25111" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, -3)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25112" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 3)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25113" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -5)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25114" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -5)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25115" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25116" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, 0)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25117" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 4)
+
+[node name="@CSGBox3D@25118" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, -8)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25119" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -8)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25120" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 7)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25121" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -2)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25122" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25123" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -1)
+size = Vector3(1, 3, 1)
+
+[node name="@CSGBox3D@25124" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.5, -6)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25125" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.5, -5)
+size = Vector3(1, 4, 1)
+
+[node name="@CSGBox3D@25126" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -8)
+size = Vector3(1, 2, 1)
+
+[node name="@CSGBox3D@25127" parent="." instance=ExtResource("2_ioxbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 5)

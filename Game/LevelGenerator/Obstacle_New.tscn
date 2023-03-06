@@ -5,9 +5,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_11ox8"]
 render_priority = 0
 shader = ExtResource("1_dciye")
-shader_parameter/ForegroundColor = Color(0, 0, 1, 1)
-shader_parameter/BackgroundColor = Color(0, 1, 0, 1)
-shader_parameter/MapDepth = 10
+shader_parameter/ForegroundColor = Color(0.843137, 0.4, 0.698039, 1)
+shader_parameter/BackgroundColor = Color(0.92549, 0.831373, 0.211765, 1)
+shader_parameter/MapDepth = 15
 shader_parameter/ObstacleDepth = 0.5
 
 [node name="CSGBox3D" type="CSGBox3D"]

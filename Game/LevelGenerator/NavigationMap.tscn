@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://qpmyxr5wbo64"]
+
+[ext_resource type="NavigationMesh" uid="uid://d2afqtxe8tca8" path="res://Game/LevelGenerator/NavigationMeshData.tres" id="1_u0qwx"]
+[ext_resource type="Script" path="res://Game/LevelGenerator/NavigationMap.gd" id="2_aw5al"]
+
+[node name="NavigationMap" type="NavigationRegion3D"]
+navigation_mesh = ExtResource("1_u0qwx")
+script = ExtResource("2_aw5al")

@@ -45,12 +45,11 @@ func connect_to_enemy_signal(new_enemy: Enemy) -> void:
 var _on_enemy_die_signal = func():
 	enemy_killed_this_wave += 1
 
-
 func _on_timer_timeout() -> void:
-#	print("Enemy Remaining this Wave:", enemy_remaining)
+	print("Enemy Remaining this Wave:", enemy_remaining)
 	if enemy_remaining:
 		spawn_enemy()
 	else:
 		if enemy_killed_this_wave >= current_wave.num_enemies:
-#			print("Starting Next Wave")
+			print("Starting Next Wave")
 			start_next_wave()

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bat4mkvlqyyb3"]
+
+[ext_resource type="Script" path="res://Game/Main.gd" id="1_x2qj2"]
+[ext_resource type="PackedScene" uid="uid://d0l44hwbylviw" path="res://Test/TestLevel.tscn" id="2_k8a8m"]
+[ext_resource type="PackedScene" uid="uid://boexpb3ec15bw" path="res://Game/Enemy/Enemy.tscn" id="3_ucaf6"]
+[ext_resource type="PackedScene" uid="uid://bq2em2vgovbtb" path="res://Game/Spawner.tscn" id="4_l33pd"]
+[ext_resource type="PackedScene" uid="uid://bd6xyasty2ptw" path="res://Game/Player/Player.tscn" id="5_xru06"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_x2qj2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.223965, 0.974597, 0, -0.974597, 0.223965, 0, 15.238, 4.9496)
+current = true
+fov = 64.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 10, 10, 10)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" parent="." instance=ExtResource("2_k8a8m")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("3_ucaf6")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -5.09458, 2, -4.95593)
+
+[node name="Spawner" parent="." instance=ExtResource("4_l33pd")]
+
+[node name="Player" parent="." instance=ExtResource("5_xru06")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 3.98078, 1.26301, 0)

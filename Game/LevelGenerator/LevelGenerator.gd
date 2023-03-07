@@ -19,7 +19,7 @@ var shader_material: ShaderMaterial
 		update_map_center()
 
 @export_category("Map:: Obstacle")
-@export_range(0.05, 1, 0.05) var obstacle_ratio: float = 0.2:
+@export_range(0.05, 0.35, 0.05) var obstacle_ratio: float = 0.2:
 	set(value):
 		obstacle_ratio = value
 

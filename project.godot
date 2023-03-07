@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Gd 43d Shooter Demo"
-run/main_scene="res://Game/Levels/Level.tscn"
+run/main_scene="res://Game/Levels/TestLevel2.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -56,5 +56,4 @@ fire={
 
 [rendering]
 
-renderer/rendering_method="mobile"
 renderer/rendering_method.mobile="gl_compatibility"

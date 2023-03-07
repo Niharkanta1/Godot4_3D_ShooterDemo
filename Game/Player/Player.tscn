@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c8gn1shw17ye7" path="res://Game/Stats.tscn" id="4_yxj0f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ngym3"]
+radius = 0.45
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2w0fa"]
 albedo_color = Color(0.0588235, 0.737255, 0.8, 1)
@@ -19,7 +20,7 @@ albedo_color = Color(0, 0, 0, 1)
 radius = 0.4
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26301, 0)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.26301, 0)
 collision_mask = 4
 script = ExtResource("1_cywxc")
 

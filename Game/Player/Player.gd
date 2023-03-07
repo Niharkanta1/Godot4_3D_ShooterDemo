@@ -10,6 +10,8 @@ class_name Player
 @onready var body = $Body
 @onready var hand = $Body/Hand
 
+var died := false
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -25,7 +27,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
 	move_and_slide()
-	print(velocity)
 	
 	# Shooting
 	if Input.is_action_pressed("fire"):
@@ -38,6 +39,13 @@ func set_look_direction(dir: Vector3) -> void:
 		hand.look_at(dir, Vector3.UP)
 
 
+func player_die() -> void:
+	self.set_physics_process(false)
+	$CollisionShape3D.disabled = true
+	self.visible = false
+	died = true
+
+
 func _on_stats_die_signal() -> void:
-	queue_free()
+	player_die()
 	print("Game Over")

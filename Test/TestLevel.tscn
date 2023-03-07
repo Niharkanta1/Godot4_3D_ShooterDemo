@@ -7,11 +7,8 @@
 
 [node name="NavigationRegion3D" type="NavigationRegion3D"]
 navigation_mesh = ExtResource("1_8h6km")
-navigation_layers = 4
 
-[node name="NavigationObstacle2D" type="NavigationObstacle3D" parent="."]
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationObstacle2D"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(-7.14179e-08, 0, 1, 0, 1, 0, -1.63385, 0, -4.37114e-08, -6, 0.5, 4)
 use_collision = true
 collision_layer = 4
@@ -19,10 +16,10 @@ collision_mask = 3
 size = Vector3(3, 1.5, 1)
 material = ExtResource("2_fy434")
 
-[node name="CSGBox3D" parent="NavigationObstacle2D" instance=ExtResource("3_dvete")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74745, 0)
+[node name="CSGBox3D" parent="." instance=ExtResource("3_dvete")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74745, -5)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationObstacle2D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.5, 0)
 use_collision = true
 collision_layer = 4

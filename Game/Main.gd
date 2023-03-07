@@ -8,7 +8,7 @@ var ray_origin := Vector3.ZERO
 var ray_target := Vector3.ZERO
 
 func _physics_process(_delta: float) -> void:
-	if not is_instance_valid(player):
+	if player.died:
 		return
 	var mouse_pos = get_viewport().get_mouse_position()
 	ray_origin = camera.project_ray_origin(mouse_pos)

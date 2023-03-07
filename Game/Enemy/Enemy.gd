@@ -33,7 +33,7 @@ func _ready() -> void:
 	
 
 func _physics_process(_delta: float) -> void:
-	if not is_instance_valid(player): 
+	if player.died: 
 		return
 	match current_state:
 		State.ATTACK:
@@ -94,7 +94,7 @@ func set_collisions(flag: bool) -> void:
 
 # Signals
 func _on_timer_timeout() -> void:
-	if is_instance_valid(player) and look_for_player:
+	if !player.died and look_for_player:
 		navigation_agent.set_target_position(player.global_transform.origin)
 	else:
 		look_for_player = false

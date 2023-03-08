@@ -8,7 +8,7 @@
 radius = 0.45
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c4wy8"]
-radius = 0.4
+radius = 0.35
 height = 1.88326
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_861oe"]
@@ -30,14 +30,15 @@ surface_material_override/0 = ExtResource("2_fxj7p")
 shape = SubResource("CapsuleShape3D_c4wy8")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-avoidance_enabled = true
-radius = 0.4
-neighbor_distance = 5.0
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+radius = 1.0
 debug_enabled = true
 
 [node name="Timers" type="Node" parent="."]
 
 [node name="PathUpdateTimer" type="Timer" parent="Timers"]
+wait_time = 0.2
 
 [node name="AttackTimer" type="Timer" parent="Timers"]
 wait_time = 0.5

@@ -135,7 +135,7 @@ func add_level() -> void:
 	navigation_region.name = "NavigationRegion"
 	navigation_mesh.agent_radius = 0.25
 	navigation_mesh.agent_max_slope = 20
-	navigation_region.navigation_mesh = navigation_mesh
+	navigation_region.navigation_mesh = navigation_mesh.duplicate(true)
 	add_child(navigation_region)
 	navigation_region.owner = self
 	

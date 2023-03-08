@@ -27,7 +27,7 @@ enum State {
 var current_state: State = State.SEEK
 
 func _ready() -> void:
-	timer.start(1)
+	timer.start()
 	navigation_agent.set_target_position(player.global_transform.origin)
 	$Body.set_surface_override_material(0, default_material)
 	
@@ -42,7 +42,7 @@ func _physics_process(_delta: float) -> void:
 		State.SEEK:
 			if player.global_transform.origin.distance_to(global_transform.origin) > 0.9:
 				if not look_for_player:
-					timer.start(1)
+					timer.start()
 				look_for_player = true
 			else:
 				print("Target reached")

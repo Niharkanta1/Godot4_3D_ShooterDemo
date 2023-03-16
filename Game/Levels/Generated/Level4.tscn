@@ -1,0 +1,180 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkeagj85iefg0"]
+
+[ext_resource type="PackedScene" uid="uid://bymntkh8nifu5" path="res://Game/LevelGenerator/Ground.tscn" id="1_okik7"]
+[ext_resource type="Texture2D" uid="uid://c6jgbvnvkis2d" path="res://Art/ground-grid.png" id="2_bm6ke"]
+[ext_resource type="PackedScene" uid="uid://bok5xc2vwm0ju" path="res://Game/LevelGenerator/Obstacle_New.tscn" id="3_l2o3u"]
+[ext_resource type="Shader" uid="uid://d3c1oy0smcxjk" path="res://Shader/GradientShader.tres" id="4_gs81h"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_1ls8d"]
+cell_size = 0.05
+cell_height = 0.05
+agent_radius = 0.25
+agent_max_slope = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoc83"]
+albedo_texture = ExtResource("2_bm6ke")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11ox8"]
+render_priority = 0
+shader = ExtResource("4_gs81h")
+shader_parameter/ForegroundColor = Color(0.843137, 0.4, 0.698039, 1)
+shader_parameter/BackgroundColor = Color(0.92549, 0.831373, 0.211765, 1)
+shader_parameter/MapDepth = 11
+shader_parameter/ObstacleDepth = 0.5
+
+[node name="NavigationRegion" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_1ls8d")
+
+[node name="Ground" type="CSGBox3D" parent="." instance=ExtResource("1_okik7")]
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(11, 1, 11)
+material = SubResource("StandardMaterial3D_aoc83")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.39229, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.78457, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20793" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16648, -3)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.33296, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20794" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.23401, 5)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.46802, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20795" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.46577, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.93153, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20796" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.04191, 4)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.08382, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20797" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.0867, -1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.1734, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20798" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.47812, -1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.95624, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20799" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.48388, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.96776, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20800" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.3364, -2)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.6728, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20801" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.36956, 3)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.73913, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20802" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.08528, 2)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.17057, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20803" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.12454, -5)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.24908, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20804" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.05155, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.10311, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20805" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.22949, -1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.45898, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20806" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.31696, 5)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.63392, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20807" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.34422, -4)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.68844, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20808" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.45598, -1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.91196, 1)
+material = SubResource("ShaderMaterial_11ox8")
+
+[node name="@CSGBox3D@20809" type="CSGBox3D" parent="." instance=ExtResource("3_l2o3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.38519, 1)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+size = Vector3(1, 1.77039, 1)
+material = SubResource("ShaderMaterial_11ox8")
